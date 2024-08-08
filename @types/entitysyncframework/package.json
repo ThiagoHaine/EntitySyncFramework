@@ -1,0 +1,12 @@
+{
+  "name": "@types/entitysyncframework",
+  "version": "1.0.0",
+  "description": "TypeScript type definitions for entitysyncframework",
+  "main": "index.d.ts",
+  "types": "index.d.ts",
+  "files": [
+    "index.d.ts"
+  ],
+  "dependencies": {},
+  "license": "MIT"
+}
