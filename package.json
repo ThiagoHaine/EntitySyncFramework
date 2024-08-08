@@ -1,0 +1,24 @@
+{
+  "name": "entityscript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "npm run build && node dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "mysql2": "^3.11.0",
+    "reflect-metadata": "^0.2.2",
+    "uuid": "^10.0.0"
+  }
+}
