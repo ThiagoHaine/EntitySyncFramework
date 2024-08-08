@@ -1,0 +1,11 @@
+.vscode/
+.vscode/*
+.vscode/*/**
+.vscode
+src/
+src
+src/*
+src/*/**
+node_modules
+node_modules/*
+node_modules/*/**
