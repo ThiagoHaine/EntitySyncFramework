@@ -1,4 +1,4 @@
-import { Column, IEntity } from "./IEntity";
+import { IEntity } from "./IEntity";
 
 export interface IDictionary{
     insertQuery(table:string, columns:string[], ...values:any[]):string;
@@ -11,5 +11,5 @@ export interface IDictionary{
     dropColumn(name:string, column:object):string;
     dropTable(name:string):string;
     getLatestInserted(table:string):string;
-    processAutoIncrementField(column:Column):string;
+    processAutoIncrementField(column:object):string;
 }

@@ -1,4 +1,4 @@
-import { Column, IEntity } from "../interface/IEntity";
+import { IEntity } from "../interface/IEntity";
 import { v4 as uuidv4 } from 'uuid';
 import { getEntityInfo, parseType, registerColumn, registerColumnModifier, registerConstructor, registerKey, registerType } from "../utils/TypeRegistry";
 import 'reflect-metadata';
@@ -40,7 +40,6 @@ export class Entity implements IEntity{
     _keys: string[] = [];
     _tableName!: string;
     _internalId!: string;
-    _registeredColumns:Column[] = [];
 
     constructor(){
         this._keys = [];

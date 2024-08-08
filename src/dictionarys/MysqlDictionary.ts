@@ -1,5 +1,5 @@
 import { IDictionary } from "../interface/IDictionary";
-import { Column, IEntity } from "../interface/IEntity";
+import { IEntity } from "../interface/IEntity";
 import { EntityColumnMap, parseType } from "../utils/TypeRegistry";
 
 export class MysqlDictionary implements IDictionary {
@@ -39,7 +39,7 @@ export class MysqlDictionary implements IDictionary {
         return `ALTER TABLE ${name} ${columnsDefinition.join(", ")}`;
     }
 
-    processAutoIncrementField(column: Column): string {
+    processAutoIncrementField(column: any): string {
         return "AUTO_INCREMENT";
     }
 
