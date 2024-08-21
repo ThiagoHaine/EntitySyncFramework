@@ -9,4 +9,3 @@ export * from "./classes/Entity";
 export * from "./classes/GenericConnector";
 export * from "./classes/Repository";
 export * from "./classes/types/constructor";
-export * from "./classes/types/global";

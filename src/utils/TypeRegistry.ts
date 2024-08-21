@@ -94,6 +94,8 @@ export function parseType(val:string){
             return "long";
         case "boolean":
             return "bit";
+        case "date":
+            return "datetime";
         default:
             throw Error("Cannot parse type");
     }
