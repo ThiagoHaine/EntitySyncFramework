@@ -11,7 +11,7 @@ declare module 'entitysyncframework' {
         runAndReturnString(query: string): Promise<string>;
         runAndReturnList(query: string): Promise<IEntity[]>;
         mapRepositorys(repositorys: Constructor<IRepository<IEntity>>[]): Promise<void>;
-        getRepository(entity: Constructor<IEntity>): IRepository<IEntity> | null;
+        getRepository<T extends IEntity>(entity: Constructor<T>): IRepository<T> | null;
         getTableUid(name: string): Promise<string>;
     }
 
@@ -103,7 +103,7 @@ declare module 'entitysyncframework' {
         runAndReturnString(query: string): Promise<string>;
         runAndReturnList(query: string): Promise<IEntity[]>;
         mapRepositorys(repositorys: Constructor<IRepository<IEntity>>[]): Promise<void>;
-        getRepository(entity: Constructor<IEntity>): IRepository<IEntity> | null;
+        getRepository<T extends IEntity>(entity: Constructor<T>): IRepository<T> | null;
         getTableUid(name: string): Promise<string>;
     }
 

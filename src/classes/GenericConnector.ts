@@ -35,10 +35,10 @@ export class GenericConnector implements IConnector{
             resolve();
         });
     }
-    getRepository(entity: Constructor<IEntity>): IRepository<IEntity> | null{
+    getRepository<T extends IEntity>(entity: Constructor<T>): IRepository<T> | null{
         let newObj = new entity();
         let repository = this._repositorys.find(a=>a._obj.constructor.name == newObj.constructor.name);
-        return repository || null;
+        return (repository || null) as unknown as IRepository<T> | null;
     }
     getTableUid(name: string): Promise<string> {
         throw new Error("Method not implemented.");

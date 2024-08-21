@@ -23,11 +23,18 @@ export class MysqlConnector extends GenericConnector {
     connect(host: string, username: string, password: string, db: string, port: number | undefined=undefined): Promise<void> {
         return new Promise(resolve=>{
             mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                password: '166956',
-                database: 'testSync',
-                port: 3306
+                host: host,
+                user: username,
+                password: password,
+                database: db,
+                port: port,
+                typeCast: function(field, next){
+                    if (field.type === 'BIT' && field.length === 1) {
+                        const bytes = field.buffer();
+                        return bytes ? bytes[0] === 1 : false;
+                    }
+                    return next();
+                }
             }).then(conn=>{
                 this._connection = conn;
                 resolve();
