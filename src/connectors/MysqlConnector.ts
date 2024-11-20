@@ -13,6 +13,7 @@ import { EntityData } from "../classes/EntityData";
 export class MysqlConnector extends GenericConnector {
     _dictionary: IDictionary;
     private _connection!: mysql.Connection;
+    private _keepAliveInterval: NodeJS.Timeout | null = null;
 
     constructor() {
         super();
@@ -37,9 +38,21 @@ export class MysqlConnector extends GenericConnector {
                 }
             }).then(conn=>{
                 this._connection = conn;
+                this._keepAlive();
                 resolve();
             })
         })
+    }
+
+    private _keepAlive() {
+        if (this._keepAliveInterval) {
+            clearInterval(this._keepAliveInterval);
+        }
+        this._keepAliveInterval = setInterval(() => {
+            this.runQuery('SELECT 1').catch(err => {
+                console.error('Keep-alive query failed:', err);
+            });
+        }, 300000); // a cada 30 segundos
     }
 
     runQuery(query: string): Promise<void> {

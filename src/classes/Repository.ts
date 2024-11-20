@@ -37,6 +37,10 @@ export class Repository<T extends Entity> implements IRepository<IEntity>{
                     }
 
                     let value = (entity as any)[c.name] || "null";
+                    if ((entity as any)[c.name]===false){
+                        value = false;
+                    }
+                    
                     valuesObj[c.name] = value;
                 });
 
@@ -52,6 +56,10 @@ export class Repository<T extends Entity> implements IRepository<IEntity>{
                         values.push("null");
                     }else{
                         let value = (entity as any)[c.name] || "null";
+
+                        if ((entity as any)[c.name]===false){
+                            value = false;
+                        }
 
                         values.push(value);
                     }
